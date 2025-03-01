@@ -1,7 +1,7 @@
 {
   "name": "analog-clock",
   "version": "0.1.0",
-  "homepage": "https://github.com/xuanhao1804/analog_clock_CocCoc",
+  "homepage": "https://xuanhao1804.github.io/analog_clock_CocCoc",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
