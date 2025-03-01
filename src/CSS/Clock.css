@@ -1,16 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+:root {
+  --second-offset: 0deg;
+  --minute-offset: 0deg;
+  --hour-offset: 0deg;
+}
+h1{
+  text-align: center;
+  font-size: 2.2rem;
+  font-family: "Lobster", cursive;
+  color: #333;
+  margin: 1rem 0;
+}
 .clock-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 2rem auto;
+  padding: 1rem;
 }
 
 .clock {
-  width: 350px;
+  width: 90vw;
+  max-width: 500px;
+  min-width: 250px;
   aspect-ratio: 1 / 1;
   position: relative;
   border: 8px solid #8BC34A;
   border-radius: 50%;
+  background-image: url("../assert/images/Cốc_Cốc_logo.svg.png");
+  background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -18,8 +37,8 @@
 
 .clock-face {
   position: absolute;
-  top: 47%;
-  left: 47%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
@@ -28,18 +47,18 @@
 
 .clock-number {
   position: absolute;
-  top: 49%;
-  left: 49%;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  font-weight: bold;
-  color: #000;
+  font-family: "Lobster", cursive;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
   user-select: none;
   z-index: 6;
+  transform: translate(-50%, -50%);
 }
 
 .hand {
@@ -47,23 +66,31 @@
   width: 50%;
   top: 50%;
   transform-origin: 100%;
-  transition: transform 0.3s cubic-bezier(0.4, 2.3, 0.3, 1);
+  will-change: transform;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 4;
 }
 
-.hour {
+.hand.hour {
+  height: 8px;
+  background: linear-gradient(90deg, #333, #555);
+  transform: rotate(var(--hour-offset));
+  transition: transform 0.1s linear;
+}
+
+.hand.minute {
   height: 6px;
-  background: #333;
+  background: linear-gradient(90deg, #555, #777);
+  transform: rotate(var(--minute-offset));
+  transition: transform 0.05s linear;
 }
 
-.minute {
+.hand.second {
   height: 4px;
-  background: #555;
-}
-
-.second {
-  height: 2px;
-  background: #FF5722;
+  background: linear-gradient(90deg, #FF5722, #FF8A65);
+  transform: rotate(var(--second-offset));
+  transition: transform 0.016s linear;
 }
 
 .center {
@@ -78,4 +105,52 @@
   border: 2px solid #fff;
   box-sizing: border-box;
   z-index: 5;
+}
+
+@media (max-width: 400px) {
+  .clock-number {
+    font-size: 18px;
+    width: 35px;
+    height: 35px;
+  }
+  .hand.hour {
+    height: 4px;
+  }
+  .hand.minute {
+    height: 3px;
+  }
+  .hand.second {
+    height: 2px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 768px) {
+  .clock-number {
+    font-size: 20px;
+    width: 38px;
+    height: 38px;
+  }
+  .hand.hour {
+    height: 6px;
+  }
+  .hand.minute {
+    height: 5px;
+  }
+}
+
+@media (min-width: 769px) {
+  .clock-number {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+  }
+  .hand.hour {
+    height: 8px;
+  }
+  .hand.minute {
+    height: 6px;
+  }
+  .hand.second {
+    height: 4px;
+  }
 }
