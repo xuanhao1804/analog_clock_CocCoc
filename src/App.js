@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Clock from "./component/Clock";
+import "./CSS/App.css";
+import Clock from "./components/Clock";
 
 function App() {
   return (

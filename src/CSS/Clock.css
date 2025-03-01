@@ -3,7 +3,7 @@
     height: 300px;
     position: relative;
     margin: 50px auto;
-    border: 8px solid #8BC34A; /* Màu xanh lá đặc trưng Cốc Cốc */
+    border: 8px solid #8BC34A;
     border-radius: 50%;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,24 +24,24 @@
   
   .hour {
     height: 6px;
-    background: #333; /* Kim giờ màu đậm */
+    background: #333;
   }
   
   .minute {
     height: 4px;
-    background: #555; /* Kim phút màu xám */
+    background: #555;
   }
   
   .second {
     height: 2px;
-    background: #FF5722; /* Kim giây màu cam (phối hợp cùng xanh) */
+    background: #FF5722; 
   }
   
-  /* Chấm tròn ở giữa để che phần đầu các kim */
+
   .center {
     width: 12px;
     height: 12px;
-    background: #8BC34A; /* Màu xanh lá đặc trưng Cốc Cốc */
+    background: #8BC34A; 
     border-radius: 50%;
     position: absolute;
     top: 50%;

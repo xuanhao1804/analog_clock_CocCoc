@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../CSS/Clock.css";
 
-import coccocLogo from "./Cốc_Cốc_logo.svg.png";
+import coccocLogo from "../assert/images/Cốc_Cốc_logo.svg.png";
 
 const Clock = () => {
   const [time, setTime] = useState(new Date());
