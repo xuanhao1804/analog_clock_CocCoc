@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/analog_clock_CocCoc/static/css/main.1375b077.css",
-    "main.js": "/analog_clock_CocCoc/static/js/main.f108fcf0.js",
+    "main.css": "/analog_clock_CocCoc/static/css/main.160050fb.css",
+    "main.js": "/analog_clock_CocCoc/static/js/main.1efe1f79.js",
     "static/js/453.c50fafbf.chunk.js": "/analog_clock_CocCoc/static/js/453.c50fafbf.chunk.js",
     "static/media/Cốc_Cốc_logo.svg.png": "/analog_clock_CocCoc/static/media/Cốc_Cốc_logo.svg.48327dfb876dc47fdb08.png",
     "index.html": "/analog_clock_CocCoc/index.html",
-    "main.1375b077.css.map": "/analog_clock_CocCoc/static/css/main.1375b077.css.map",
-    "main.f108fcf0.js.map": "/analog_clock_CocCoc/static/js/main.f108fcf0.js.map",
+    "main.160050fb.css.map": "/analog_clock_CocCoc/static/css/main.160050fb.css.map",
+    "main.1efe1f79.js.map": "/analog_clock_CocCoc/static/js/main.1efe1f79.js.map",
     "453.c50fafbf.chunk.js.map": "/analog_clock_CocCoc/static/js/453.c50fafbf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1375b077.css",
-    "static/js/main.f108fcf0.js"
+    "static/css/main.160050fb.css",
+    "static/js/main.1efe1f79.js"
   ]
 }
