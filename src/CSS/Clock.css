@@ -6,35 +6,43 @@
   --hour-offset: 0deg;
 }
 
-h1{
+h1 {
   text-align: center;
   font-size: 2.2rem;
   font-family: "Lobster", cursive;
   color: #333;
-  margin: 1rem 0;
+  margin: 0.5rem 0; /* Reduced margin for less vertical space */
 }
 
 .clock-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem auto;
-  padding: 1rem;
+  margin: 0 auto;
+  padding: 0;
+  min-height: 100vh; /* Use full viewport height */
+  justify-content: center; /* Center vertically */
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .clock {
   width: 90vw;
   max-width: 500px;
   min-width: 250px;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1; /* Maintain 1:1 ratio for circular shape */
+  height: auto; /* Allow height to auto-adjust */
   position: relative;
   border: 8px solid #8BC34A;
   border-radius: 50%;
   background-image: url("../assert/images/Cốc_Cốc_logo.svg.png");
-  background-size: 80%;
+  background-size: 80%; /* Ensure background doesn’t distort */
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease; /* Smooth scaling for responsiveness */
+  transform: scale(1); /* Ensure no distortion on zoom */
+  transform-origin: center; /* Center the transform origin */
 }
 
 .clock-face {
@@ -61,40 +69,50 @@ h1{
   user-select: none;
   z-index: 6;
   transform: translate(-50%, -50%);
+  border: 2px solid rgba(51, 51, 51, 0.1); /* Subtle border for numbers */
+  border-radius: 50%; /* Rounded numbers for better aesthetics */
 }
 
+/* Clock hands */
 .hand {
   position: absolute;
-  width: 50%;
   top: 50%;
-  transform-origin: 100%;
+  left: 50%;
+  transform-origin: 0 50%;
   will-change: transform;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 4;
 }
 
+/* Hour hand: shortest */
 .hand.hour {
+  width: 25%;
   height: 8px;
   background: linear-gradient(90deg, #333, #555);
   transform: rotate(var(--hour-offset));
   transition: transform 0.1s linear;
 }
 
+/* Minute hand: medium */
 .hand.minute {
+  width: 40%;
   height: 6px;
   background: linear-gradient(90deg, #555, #777);
   transform: rotate(var(--minute-offset));
   transition: transform 0.05s linear;
 }
 
+/* Second hand: longest */
 .hand.second {
+  width: 45%;
   height: 4px;
   background: linear-gradient(90deg, #FF5722, #FF8A65);
   transform: rotate(var(--second-offset));
   transition: transform 0.016s linear;
 }
 
+/* Center dot */
 .center {
   width: 12px;
   height: 12px;
@@ -107,13 +125,16 @@ h1{
   border: 2px solid #fff;
   box-sizing: border-box;
   z-index: 5;
+  box-shadow: 0 0 5px rgba(139, 195, 74, 0.5); /* Subtle glow for center */
 }
 
+/* Media queries for responsiveness */
 @media (max-width: 400px) {
   .clock-number {
-    font-size: 18px;
+    font-size: 20px;
     width: 35px;
     height: 35px;
+    border-width: 1px; /* Reduce border for smaller screens */
   }
   .hand.hour {
     height: 4px;
@@ -124,11 +145,15 @@ h1{
   .hand.second {
     height: 2px;
   }
+  .clock {
+    width: 80vw;
+    max-width: 300px;
+  }
 }
 
 @media (min-width: 401px) and (max-width: 768px) {
   .clock-number {
-    font-size: 20px;
+    font-size: 32px;
     width: 38px;
     height: 38px;
   }
@@ -138,11 +163,15 @@ h1{
   .hand.minute {
     height: 5px;
   }
+  .clock {
+    width: 85vw;
+    max-width: 400px;
+  }
 }
 
 @media (min-width: 769px) {
   .clock-number {
-    font-size: 24px;
+    font-size: 38px;
     width: 40px;
     height: 40px;
   }
@@ -155,4 +184,34 @@ h1{
   .hand.second {
     height: 4px;
   }
+  .clock {
+    max-width: 500px;
+  }
+}
+
+@media (max-height: 500px) {
+  .clock {
+    width: 80vw;
+    max-width: 350px;
+  }
+  .clock-number {
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+  }
+  h1 {
+    font-size: 1.8rem; /* Reduce title size for short screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .clock {
+    max-width: 450px; /* Reduce max-width on very wide screens to prevent distortion */
+  }
+}
+
+/* Add hover effect for interactivity (optional enhancement) */
+.clock:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
