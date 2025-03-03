@@ -1,7 +1,7 @@
 # Analog Clock Cốc Cốc
 
 ## Description
-This is an analog clock application built using React.js and CSS, designed to display the current time with smooth-moving hour, minute, and second hands. The clock features a visually appealing design inspired by the Cốc Cốc brand, with green and orange colors and the Cốc Cốc logo as the background. This project was created as part of the Assessment Test for Interns - Test 3 by the Cốc Cốc Ad Frontend Team.
+This is an analog clock application built using React.js and CSS, designed to display the current time with smooth-moving hour, minute, and second hands. The clock features a visually appealing design inspired by the Cốc Cốc brand, with green and orange colors and the Cốc Cốc logo as the background. 
 
 ## Demo
 You can view the live demo of this project at: [https://xuanhao1804.github.io/analog_clock_CocCoc/]
