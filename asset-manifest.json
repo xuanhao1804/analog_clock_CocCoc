@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/analog_clock_CocCoc/static/css/main.160050fb.css",
-    "main.js": "/analog_clock_CocCoc/static/js/main.1efe1f79.js",
+    "main.js": "/analog_clock_CocCoc/static/js/main.dd40e453.js",
     "static/js/453.c50fafbf.chunk.js": "/analog_clock_CocCoc/static/js/453.c50fafbf.chunk.js",
     "static/media/Cốc_Cốc_logo.svg.png": "/analog_clock_CocCoc/static/media/Cốc_Cốc_logo.svg.48327dfb876dc47fdb08.png",
     "index.html": "/analog_clock_CocCoc/index.html",
     "main.160050fb.css.map": "/analog_clock_CocCoc/static/css/main.160050fb.css.map",
-    "main.1efe1f79.js.map": "/analog_clock_CocCoc/static/js/main.1efe1f79.js.map",
+    "main.dd40e453.js.map": "/analog_clock_CocCoc/static/js/main.dd40e453.js.map",
     "453.c50fafbf.chunk.js.map": "/analog_clock_CocCoc/static/js/453.c50fafbf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.160050fb.css",
-    "static/js/main.1efe1f79.js"
+    "static/js/main.dd40e453.js"
   ]
 }
