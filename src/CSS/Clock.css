@@ -109,7 +109,7 @@ h1 {
   height: 4px;
   background: linear-gradient(90deg, #FF5722, #FF8A65);
   transform: rotate(var(--second-offset));
-  transition: transform 0.016s linear;
+  transition: transform 0.05s linear;
 }
 
 /* Center dot */

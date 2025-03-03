@@ -4,22 +4,29 @@ import "../css/Clock.css";
 const Clock = () => {
   useEffect(() => {
     let animationFrameId;
+    let previousSeconds = 0;
+    let secondRotationOffset = 0;
 
-    const calculateHandAngle = (value, total) => {
-      // Calculate angle for clock hands: (value / total) * 360 - 90 (to align 12 o'clock at the top)
-      return (value / total) * 360 - 90;
-    };
+    // Calculate angle: (value / total) * 360 - 90 to align 12 o'clock at the top
+    const calculateHandAngle = (value, total) => (value / total) * 360 - 90;
 
     const updateClock = () => {
       try {
         const now = new Date();
         const ms = now.getMilliseconds();
-        const seconds = now.getSeconds() + ms / 1000; // Include milliseconds for smoother motion
+        const rawSeconds = now.getSeconds() + ms / 1000;
+        // When seconds reset (from 59 to 0), add 360° to maintain continuous rotation
+        if (rawSeconds < previousSeconds) {
+          secondRotationOffset += 360;
+        }
+        previousSeconds = rawSeconds;
+
+        const seconds = rawSeconds % 60;
         const minutes = now.getMinutes() + seconds / 60;
         const hours = (now.getHours() % 12) + minutes / 60;
 
-        // Calculate angles for each hand
-        const secondAngle = calculateHandAngle(seconds, 60);
+        const secondAngle =
+          calculateHandAngle(seconds, 60) + secondRotationOffset;
         const minuteAngle = calculateHandAngle(minutes, 60);
         const hourAngle = calculateHandAngle(hours, 12);
 
@@ -37,38 +44,31 @@ const Clock = () => {
           `${hourAngle}deg`
         );
 
-        // Request next frame for smooth animation
         animationFrameId = requestAnimationFrame(updateClock);
       } catch (error) {
         console.error("Error updating clock:", error);
-        // Fallback: Use setInterval if requestAnimationFrame fails
         if (!window.requestAnimationFrame) {
           setInterval(updateClock, 1000);
         }
       }
     };
 
-    // Start the clock
     if (window.requestAnimationFrame) {
       updateClock();
     } else {
       console.warn(
-        "Browser does not support requestAnimationFrame. Using setInterval as fallback."
+        "requestAnimationFrame not supported; using setInterval as fallback."
       );
       setInterval(updateClock, 1000);
     }
 
-    // Cleanup on unmount
     return () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
     };
-  }, []); // Empty dependency array ensures effect runs only once on mount
+  }, []);
 
-  // Array of numbers for clock face
   const numbers = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-  const radius = 42; // Radius for positioning numbers (in percentage)
+  const radius = 42;
 
   return (
     <div className="clock-container">
@@ -76,11 +76,9 @@ const Clock = () => {
       <div className="clock">
         <div className="clock-face">
           {numbers.map((num, i) => {
-            // Calculate position for each number around the circle
-            // Angle = (i * 30 - 90) * (Math.PI / 180) to position numbers at 30° intervals, starting at 12 o'clock
             const angle = (i * 30 - 90) * (Math.PI / 180);
-            const x = 50 + radius * Math.cos(angle); // X position in percentage
-            const y = 50 + radius * Math.sin(angle); // Y position in percentage
+            const x = 50 + radius * Math.cos(angle);
+            const y = 50 + radius * Math.sin(angle);
             return (
               <div
                 key={num}
@@ -92,11 +90,9 @@ const Clock = () => {
             );
           })}
         </div>
-        {/* Clock hands */}
         <div className="hand hour" />
         <div className="hand minute" />
         <div className="hand second" />
-        {/* Center dot */}
         <div className="center" />
       </div>
     </div>
