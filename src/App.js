@@ -1,4 +1,3 @@
-
 import Clock from "./components/Clock";
 
 function App() {
